@@ -1,5 +1,5 @@
-import { GetAllServers } from "utils.js";
-import { RunScript, MemoryMap } from "ram.js";
+import { GetAllServers } from "./utils.js";
+import { RunScript, MemoryMap } from "./ram.js";
 
 /** @param {NS} ns **/
 export async function main(ns) {

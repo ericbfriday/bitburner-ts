@@ -1,7 +1,7 @@
-import { AnyPidStillRunning, Prep, IsPrepped } from "prep.js";
-import { BATCH_SPACER, Metrics, GetBestPctForServer } from "metrics.js";
-import { MemoryMap, RunScript } from "ram.js";
-import { ServerReport } from "utils.js";
+import { AnyPidStillRunning, Prep, IsPrepped } from "././prep.js";
+import { BATCH_SPACER, Metrics, GetBestPctForServer } from "./metrics.js";
+import { MemoryMap, RunScript } from "./ram.js";
+import { ServerReport } from "./utils.js";
 
 const H = 0;
 const W1 = 1;

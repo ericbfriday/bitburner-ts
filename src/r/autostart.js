@@ -1,5 +1,5 @@
-import { WaitPids, LogMessage } from "utils.js";
-import { Goal, Goals } from "goals.js";
+import { WaitPids, LogMessage } from "./utils.js";
+import { Goal, Goals } from "./goals.js";
 
 /*
 Brainstorm of what's needed for a "main brain" script

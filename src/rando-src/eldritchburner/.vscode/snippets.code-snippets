@@ -1,0 +1,66 @@
+{
+    "ns-template": {
+        "scope": "typescript",
+        "prefix": "template",
+        "body": [
+            "import { NS } from \"@ns\";",
+            "import { Whisperer } from \"/_necronomicon/whisperer\";",
+            "",
+            "/**",
+            " * ${1:TODO Script documentation}",
+            " *",
+            " * @remarks RAM cost: 9.99GB",
+            " * @param {NS} ns NetScript object",
+            " */",
+            "export async function main(ns: NS): Promise<void> {",
+            "    // CLI Argument parsing",
+            "    const args = ns.flags([",
+            "        [\"help\", false],",
+            "        [\"verbose\", false],",
+            "        [\"quiet\", false],",
+            "    ]);",
+            "",
+            "    if (!(args._ instanceof Array)) args._ = [args._.toString()]",
+            "    if (args.help || args._.length > 1) {",
+            "        ns.tprint([",
+            "            `Usage: run ${ns.getScriptName()} ...`,",
+            "            `${1}`,",
+            "            `Example:`,",
+            "            `  > run ${ns.getScriptName()} -t 8 ...`",
+            "        ].join(\"\\n\"))",
+            "        return",
+            "    }",
+            "",
+            "    // Initialise the logger",
+            "    const log: Whisperer = new Whisperer(ns, Whisperer.FromVerbosity(args.verbose as boolean, args.quiet as boolean))",
+            "    log.debug(\"${1}: [%s]\", args)",
+            "",
+            "    ${0:ns.print(\"Hello World\")}",
+            "}"
+        ]
+    },
+    "autocomplete": {
+        "scope": "typescript",
+        "prefix": "autocomplete",
+        "body": [
+            "// Unsuported public API yet for autocomplete",
+            "// eslint-disable-next-line @typescript-eslint/no-explicit-any",
+            "type ServerData = { [key: string]: any }",
+            "// eslint-disable-next-line @typescript-eslint/no-unused-vars",
+            "export function autocomplete(data : ServerData, args : string[]) : string[] {",
+            "    return [\"--help\", \"--verbose\", \"--quiet\", ...data.servers]",
+            "}"
+        ],
+        "description": "autocomplete"
+    },
+    "ramCost": {
+        "scope": "typescript",
+        "prefix": "/ram",
+        "body": "// RAM: ${1}${2:G}B${0}"
+    },
+    "ramCostDoc": {
+        "scope": "typescript",
+        "prefix": "@ram",
+        "body": "@remarks RAM cost: ${1}${2:G}B${0}"
+    }
+}

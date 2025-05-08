@@ -1,6 +1,9 @@
-/** @param {NS} ns **/
-export async function main(ns) {
-    let target = ns.args[0];
+/** 
+ * @param {NS} ns
+ * @param {string} hostname The hostname of the target to deploy to.
+ *  **/
+export async function main(ns, _target) {
+    let target = _target;
     let moneyThresh = ns.getServerMaxMoney(target) * 0.75;
     let securityThresh = ns.getServerMinSecurityLevel(target) + 5;
     let servers = [];
@@ -46,6 +49,7 @@ export async function main(ns) {
     }
 
     if (ns.hasRootAccess(target)) {
+        // eslint-disable-next-line no-constant-condition
         while (true) {
             let sleepTime = 3000;
             for (let server of servers) {

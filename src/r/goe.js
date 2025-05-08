@@ -13,7 +13,7 @@
 
 const GROWTH_FUDGE_FACTOR = 0.99 // Must recover this much of a hack
 
-import { createTable, getCustomFormulas } from "/lib"
+import { createTable, getCustomFormulas } from "./lib"
 
 const hacking = getCustomFormulas()
 

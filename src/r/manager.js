@@ -1,7 +1,7 @@
-import { Prep, IsPrepped } from "prep.js";
-import { BATCH_SPACER, MaxHackForServer, GetBestMetricsForServer, HGW_MODE } from "metrics.js";
-import { MemoryMap, RunScript } from "ram.js";
-import { HasFormulas, ServerReport, WaitPids } from "utils.js";
+import { Prep, IsPrepped } from "./prep.js";
+import { BATCH_SPACER, MaxHackForServer, GetBestMetricsForServer, HGW_MODE } from "./metrics.js";
+import { MemoryMap, RunScript } from "./ram.js";
+import { HasFormulas, ServerReport, WaitPids } from "./utils.js";
 
 const H = 0;
 const W1 = 1;
@@ -40,7 +40,7 @@ export async function main(ns) {
 async function ManageServer(ns, server, maxPctTotalRam, loop) {
 	// Batch cycle counter
 	let cycle = 0;
-	let masterCycle= 0;
+	let masterCycle = 0;
 
 	// Store hack level, this is just for reporting it when we detect a desync.
 	// Ideally, most desyncs are caused by an increase in hackLevel mid-cycle,

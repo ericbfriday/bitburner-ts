@@ -1,4 +1,4 @@
-import { FormatMoney } from "utils.js";
+import { FormatMoney } from "./utils.js";
 
 export async function main(ns) {
 	ns.disableLog('ALL');
@@ -46,7 +46,7 @@ export async function main(ns) {
 		const maxMoney = ns.getServerMaxMoney(hackable);
 
 		so.hackDifficulty = so.minDifficulty;
-		let wtime= ns.getWeakenTime(so.hostname);
+		let wtime = ns.getWeakenTime(so.hostname);
 
 		if (ns.fileExists('Formulas.exe')) {
 			chance = ns.formulas.hacking.hackChance(so, player);
@@ -222,7 +222,7 @@ function UsableServers(ns, servers) {
 }
 
 function RecursiveScan(ns, root, found) {
-	if (found == null) found = new Array();
+	if (found == null) found = [];
 	if (root == null) root = 'home';
 	if (found.find(p => p == root) == undefined) {
 		found.push(root);

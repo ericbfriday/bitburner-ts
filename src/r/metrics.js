@@ -1,6 +1,6 @@
-import { MemoryMap } from "ram.js";
-import { HasFormulas, FormatMoney, GetAllServers, GetNextLevelXp } from "utils.js";
-import { ColorPrint, PrintTable, DefaultStyle } from 'tables.js'
+import { MemoryMap } from "./ram.js";
+import { HasFormulas, FormatMoney, GetAllServers, GetNextLevelXp } from "./utils.js";
+import { ColorPrint, PrintTable, DefaultStyle } from './tables.js'
 
 export const H = 0;		// Index of HACK data
 export const W1 = 1;	// Index of first WEAKEN data
@@ -30,7 +30,7 @@ export async function main(ns) {
 
 	if (ns.args[0] == 'test') {
 		let servers = GetAllServers(ns).filter(s => ns.getServerMaxMoney(s) > 0);
-		let player= ns.getPlayer();
+		let player = ns.getPlayer();
 
 		for (let server of servers) {
 			let so = ns.getServer(server);

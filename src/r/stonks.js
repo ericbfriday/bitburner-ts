@@ -1,5 +1,5 @@
-import { PrintTable, DefaultStyle } from 'tables.js'
-import { FormatMoney } from 'utils.js'
+import { PrintTable, DefaultStyle } from './tables.js'
+import { FormatMoney } from './utils.js'
 
 let getTail = false
 const width = 1000

@@ -1,5 +1,5 @@
-import { GetBestCrime } from 'stats.js'
-import { ColorPrint } from 'hack-once.js'
+import { GetBestCrime } from './stats.js'
+import { ColorPrint } from './hack-once.js'
 
 /** @param {NS} ns **/
 export async function main(ns) {

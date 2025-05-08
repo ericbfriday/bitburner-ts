@@ -1,7 +1,7 @@
-import { AnalyzeAllServers } from 'metrics.js'
-import { FormatMoney } from 'utils.js'
-import { IsPrepped } from 'prep.js'
-import { PrintTable, DefaultStyle } from 'tables.js'
+import { AnalyzeAllServers } from './metrics.js'
+import { FormatMoney } from './utils.js'
+import { IsPrepped } from './prep.js'
+import { PrintTable, DefaultStyle } from './tables.js'
 
 const QmConfig = {
 	MaxPreppingServers: 2,		// how many servers can be in prep simultaneously

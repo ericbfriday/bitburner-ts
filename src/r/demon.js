@@ -1,4 +1,4 @@
-import { LogMessage, GetServerPath, GetAllServers } from 'utils.js';
+import { LogMessage, GetServerPath, GetAllServers } from './utils.js';
 
 /** @param {NS} ns */
 export async function main(ns) {
@@ -48,5 +48,5 @@ export async function main(ns) {
 
 		ns.singularity.connect('home');
 	}
-	catch {}
+	catch { }
 }

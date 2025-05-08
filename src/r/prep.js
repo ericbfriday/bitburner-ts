@@ -1,6 +1,6 @@
-import { ServerReport, WaitPids } from "utils.js";
-import { RunScript, MemoryMap } from 'ram.js';
-import { solveGrow } from 'metrics.js'
+import { ServerReport, WaitPids } from "./utils.js";
+import { RunScript, MemoryMap } from './ram.js';
+import { solveGrow } from './metrics.js'
 
 /** @param {NS} ns **/
 export async function main(ns) {

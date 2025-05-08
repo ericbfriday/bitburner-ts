@@ -1,6 +1,6 @@
-import { GetAllServers, GetServerPath } from 'utils.js'
-import { UpdateBankCache } from 'bank.js'
-import { MemoryMap } from 'ram.js'
+import { GetAllServers, GetServerPath } from './utils.js'
+import { UpdateBankCache } from './bank.js'
+import { MemoryMap } from './ram.js'
 
 // sitrep.js: This script caches information on the current situation for use by other scripts
 // The main goal is to isolate the gathering of information ram cost.

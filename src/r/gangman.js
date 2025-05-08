@@ -1,6 +1,6 @@
-import { WaitPids } from "utils.js";
-import { GetSitRep } from 'sitrep.js'
-import { GetMembers } from '/gang/members.js'
+import { WaitPids } from "./utils.js";
+import { GetSitRep } from './sitrep.js'
+import { GetMembers } from './/gang/members.js'
 
 const GANGSTER_NAMES = [
 	'Jeromy Gride',

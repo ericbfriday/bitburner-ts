@@ -1,7 +1,7 @@
-import { Prep, IsPrepped } from "prep.js";
-import { BATCH_SPACER, MaxHackForServer, GetBestMetricsForServer, HGW_MODE } from "metrics.js";
-import { RunScript, MemoryMap } from "ram.js";
-import { HasFormulas, ServerReport, WaitPids } from "utils.js";
+import { Prep, IsPrepped } from "./prep.js";
+import { BATCH_SPACER, MaxHackForServer, GetBestMetricsForServer, HGW_MODE } from "./metrics.js";
+import { RunScript, MemoryMap } from "./ram.js";
+import { HasFormulas, ServerReport, WaitPids } from "./utils.js";
 
 // We define constants to index the times and delays in metrics
 const H = 0;

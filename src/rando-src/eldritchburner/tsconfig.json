@@ -1,0 +1,24 @@
+{
+    "include": ["defs/*.d.ts", "src/**/*"],
+    "exclude": ["src/_necronomicon/react.ts"],
+    "compilerOptions": {
+        "module": "esnext",
+        "target": "esnext",
+        "moduleResolution": "node",
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "esModuleInterop": true,
+        "inlineSourceMap": true,
+        "inlineSources": true,
+        "strict": true,
+        "rootDir": "src/",
+        "outDir": "dist/",
+        "baseUrl": "src/",
+        "jsx": "react",
+        "paths": {
+            "/*": ["*"],
+            "@ns": ["../defs/NetscriptDefinitions.d.ts"],
+            "@react": ["_necronomicon/react.ts"]
+        }
+    }
+}

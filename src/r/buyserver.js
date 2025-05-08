@@ -1,6 +1,7 @@
-import { GetAllServers, FormatMoney, FormatRam, LogMessage } from "utils.js";
-import { pctColor, PrintTable, DefaultStyle, ColorPrint } from 'tables.js'
-import { GetSitRep } from 'sitrep.js'
+/* eslint-disable no-constant-condition */
+import { GetAllServers, FormatMoney, FormatRam, LogMessage } from "./utils.js";
+import { pctColor, PrintTable, DefaultStyle, ColorPrint } from './tables.js'
+import { GetSitRep } from './sitrep.js'
 
 let MAX_SERVERS = 25;
 

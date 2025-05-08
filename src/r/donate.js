@@ -1,5 +1,5 @@
-import { GetSitRep } from 'sitrep.js'
-import { FormatMoney, LogMessage } from 'utils.js'
+import { GetSitRep } from './sitrep.js'
+import { FormatMoney, LogMessage } from './utils.js'
 
 /** @param {NS} ns */
 export async function main(ns) {

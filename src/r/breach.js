@@ -1,4 +1,4 @@
-import { LogMessage } from 'utils.js'
+import { LogMessage } from './utils.js'
 
 export async function main(ns) {
 	ns.disableLog('ALL');

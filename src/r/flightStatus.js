@@ -1,4 +1,4 @@
-import { GetSitRep } from 'sitrep.js'
+import { GetSitRep } from './sitrep.js'
 
 /** @param {NS} ns */
 export async function main(ns) {

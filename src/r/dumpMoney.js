@@ -1,4 +1,4 @@
-import { FormatRam, LogMessage } from 'utils.js'
+import { FormatRam, LogMessage } from './utils.js'
 
 /** @param {NS} ns */
 export async function main(ns) {

@@ -1,4 +1,4 @@
-import { WaitPids } from 'utils.js';
+import { WaitPids } from './utils.js';
 
 /** @param {NS} ns */
 export async function main(ns) {
@@ -11,7 +11,7 @@ export function GetCache(ns) {
 }
 
 export function Cache(ns, key, updateScript, expiration) {
-	
+
 }
 
 export function GetCacheValue(ns, key) {
@@ -21,11 +21,11 @@ export function GetCacheValue(ns, key) {
 }
 
 class CacheItem {
-	constructor(key, updateScript, expiration, value= undefined) {
-		this.key= key;
-		this.updateScript= updateScript;
-		this.expiration= expiration;
-		this.value= value;
+	constructor(key, updateScript, expiration, value = undefined) {
+		this.key = key;
+		this.updateScript = updateScript;
+		this.expiration = expiration;
+		this.value = value;
 	}
 
 	GetValue(ns) {

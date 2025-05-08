@@ -1,5 +1,5 @@
-import { pctColor, PrintTable, DefaultStyle, ColorPrint } from 'tables.js'
-import { GetSymbolFromServer } from 'utils.js'
+import { pctColor, PrintTable, DefaultStyle, ColorPrint } from './tables.js'
+import { GetSymbolFromServer } from './utils.js'
 
 const FORCED_HACK_LEVEL = undefined;
 
@@ -152,7 +152,7 @@ export async function main(ns) {
 
 		//ns.tprint(so.requiredHackingSkill ?? 0);
 
-		let req= so.requiredHackingSkill ?? 0;
+		let req = so.requiredHackingSkill ?? 0;
 
 		let values = [
 			{ color: 'white', text: ' ' + (hackingOnly ? '' : prefix) + server.name },

@@ -1,6 +1,6 @@
-import { pctColor, PrintTable, DefaultStyle, ColorPrint } from 'tables.js'
-import { GetSitRep } from 'sitrep.js'
-import { LogMessage } from 'utils.js'
+import { pctColor, PrintTable, DefaultStyle, ColorPrint } from './tables.js'
+import { GetSitRep } from './sitrep.js'
+import { LogMessage } from './utils.js'
 
 const FactionNames = {
 	CyberSec: "CyberSec",

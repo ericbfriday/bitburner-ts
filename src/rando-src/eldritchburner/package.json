@@ -1,0 +1,29 @@
+{
+    "name": "eldritchburner",
+    "version": "1.0.0",
+    "description": "BitBurner: Eldritch Edition",
+    "scripts": {
+        "build": "npx tsc --pretty",
+        "clean": "rm -rf dist/ && concurrently -gc auto npm:fetch:*",
+        "dev": "npm run clean && mkdir -p dist/ && npm run watch",
+        "watch": "concurrently -c auto -n w: npm:watch:*",
+        "fetch:defs": "curl -qs https://raw.githubusercontent.com/bitburner-official/bitburner-src/dev/src/ScriptEditor/NetscriptDefinitions.d.ts -o defs/NetscriptDefinitions.d.ts",
+        "watch:tsc": "npx tsc --pretty --watch --preserveWatchOutput",
+        "watch:sync": "bitburner-filesync"
+    },
+    "repository": "git@git.sr.ht:~larandar/eldritchburner",
+    "author": "Larandar",
+    "homepage": "https://sr.ht/~larandar/eldritchburner",
+    "devDependencies": {
+        "@types/node": "^20.11.4",
+        "@types/react": "^18.2.48",
+        "@types/react-dom": "^18.2.18",
+        "@types/lodash": "^4.14.202",
+        "eslint": "^8.56.0",
+        "@typescript-eslint/parser": "^6.19.0",
+        "@typescript-eslint/eslint-plugin": "^6.19.0",
+        "bitburner-filesync": "^1.2.0-beta4",
+        "concurrently": "^8.2.2",
+        "typescript": "^4.7.4"
+    }
+}

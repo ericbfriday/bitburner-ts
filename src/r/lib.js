@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /** @param {string} str */
 export function lengthWithoutAnsi(str) {
 	// eslint-disable-next-line no-control-regex

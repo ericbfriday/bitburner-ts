@@ -1,4 +1,4 @@
-import { LogMessage } from 'utils.js'
+import { LogMessage } from './utils.js'
 
 /** @param {NS} ns **/
 export async function main(ns) {

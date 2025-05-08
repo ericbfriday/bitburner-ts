@@ -1,5 +1,5 @@
-import { Weaken, Grow, Hack } from "prep.js";
-import { AnalyzeAllServersSequential } from "metrics.js";
+import { Weaken, Grow, Hack } from "./prep.js";
+import { AnalyzeAllServersSequential } from "./metrics.js";
 
 // ns.args[0] = target server name
 // ns.args[1] = hack percent factor (0.1 to 1)

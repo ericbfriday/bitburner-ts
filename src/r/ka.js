@@ -1,4 +1,4 @@
-import { GetAllServers } from 'utils.js'
+import { GetAllServers } from './utils.js'
 
 export async function main(ns) {
 	for (var server of GetAllServers(ns)) {

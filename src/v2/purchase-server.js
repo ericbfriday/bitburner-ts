@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 /** @param {NS} ns **/
 export async function main(ns) {
     let ram = 8;
@@ -22,6 +23,7 @@ export async function main(ns) {
 
         ram *= 2;
         servers = ns.getPurchasedServers();
+
         await ns.sleep(1000);
     }
 }

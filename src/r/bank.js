@@ -1,7 +1,7 @@
-import { COLORS, pctColor, PrintTable, DefaultStyle, ColorPrint } from 'tables.js'
-import { FormatMoney, WaitPids } from 'utils.js'
-import { RamBudget, GangBudget } from 'budget.js'
-//import { GetSitRep } from 'sitrep.js'
+import { COLORS, pctColor, PrintTable, DefaultStyle, ColorPrint } from './tables.js'
+import { FormatMoney, WaitPids } from './utils.js'
+import { RamBudget, GangBudget } from './budget.js'
+//import { GetSitRep } from './sitrep.js'
 
 /** @param {NS} ns */
 export async function main(ns) {
@@ -16,8 +16,8 @@ export async function main(ns) {
     ];
 
     let data = [];
-    let spent= [0, 0];
-    let gained= [0, 0];
+    let spent = [0, 0];
+    let gained = [0, 0];
     for (const key of Object.keys(money.sinceInstall)) {
         const install = money.sinceInstall[key];
         const start = money.sinceStart[key];

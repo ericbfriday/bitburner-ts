@@ -1,4 +1,4 @@
-import { GetSitRep } from 'sitrep.js';
+import { GetSitRep } from './sitrep.js';
 
 const GANG_FACTIONS = [
 	'Slum Snakes',
@@ -15,7 +15,7 @@ const MIN_CLASH_CHANCE = 0.55;
 /** @param {NS} ns */
 export async function main(ns) {
 	const [myGang = 'Slum Snakes', threshold = MIN_CLASH_CHANCE] = ns.args;
-	let can= CanClash(ns, myGang, threshold);
+	let can = CanClash(ns, myGang, threshold);
 	//ns.tprint('Can clash: ' + can);
 }
 
