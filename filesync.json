@@ -1,6 +1,7 @@
 {
   "allowedFiletypes": [
     ".js",
+    ".ts",
     ".script",
     ".txt"
   ],
