@@ -1,6 +1,6 @@
 import { NS } from '@ns';
-import { WorkRef } from '/_necronomicon/chamberlain';
-import { MINUTE, SECOND } from '/_necronomicon/forbidden_knowledge';
+import { WorkRef } from './chamberlain';
+import { MINUTE, SECOND } from './forbidden_knowledge';
 
 /**
  * Formatting Helper
