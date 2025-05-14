@@ -43,7 +43,7 @@ export async function main(ns) {
 
 	const started = performance.now();
 
-	const goals = new Goals(ns, 'autostart.txt', [
+	const goals = new Goals(ns, '/r/autostart.txt', [
 		// new Goal(ns, '1H', function () {
 		// 	const reached = performance.now() - started > 1000 * 60 * 60;
 		// 	if (reached)
@@ -54,25 +54,25 @@ export async function main(ns) {
 
 	goals.ResetGoals();
 
-	//let pid = ns.getRunningScript('v1.js', 'home', 'xp');
+	//let pid = ns.getRunningScript('/r/v1.js', 'home', 'xp');
 
 	while (true) {
 		// Situation report script
-		await TryRunScript(ns, 'sitrep.js');
-		await TryRunScript(ns, 'sitrepSleeves.js');
-		await TryRunScript(ns, 'factions.js', ['plan', 'silent']);
-		await TryRunScript(ns, 'acceptFactions.js');
-		await TryRunScript(ns, 'workFaction.js');
-		await TryRunScript(ns, 'joinTian.js', ['silent']);
-		await TryRunScript(ns, 'favorStatus.js');
-		await TryRunScript(ns, 'shouldInstall.js');
-		await TryRunScript(ns, 'acceptStanek.js');
-		await TryRunScript(ns, 'loadStanek.js');
-		await TryRunScript(ns, 'hashes.js');
-		ns.run('share.js', 1, 'auto');
+		await TryRunScript(ns, '/r/sitrep.js');
+		await TryRunScript(ns, '/r/sitrepSleeves.js');
+		await TryRunScript(ns, '/r/factions.js', ['plan', 'silent']);
+		await TryRunScript(ns, '/r/acceptFactions.js');
+		await TryRunScript(ns, '/r/workFaction.js');
+		await TryRunScript(ns, '/r/joinTian.js', ['silent']);
+		await TryRunScript(ns, '/r/favorStatus.js');
+		await TryRunScript(ns, '/r/shouldInstall.js');
+		// await TryRunScript(ns, '/r/acceptStanek.js');
+		// await TryRunScript(ns, '/r/loadStanek.js');
+		await TryRunScript(ns, '/r/hashes.js');
+		ns.run('/r/share.js', 1, 'auto');
 		//ns.run('casino.js', 1, 'silent');
-		ns.run('stanek.js', 1, 0.3);
-		let sitrep = JSON.parse(ns.read('sitrep.txt'));
+		// ns.run('/r/stanek.js', 1, 0.3);
+		let sitrep = JSON.parse(ns.read('/sitrep.txt'));
 		let karma = sitrep.karma;
 
 		// if (sitrep.money >= 150_000_000_000) {
@@ -83,43 +83,43 @@ export async function main(ns) {
 		// Check if we need to buy more port crackers
 		if (sitrep.portCrackers < 5) {
 			// Buy programs, run programs, nuke
-			await TryRunScript(ns, 'programs.js', [true]);
+			await TryRunScript(ns, '/r/programs.js', [true]);
 		}
 
 		if (sitrep.servers.some(s => s.ports.open < s.ports.needed) || // Check if we have servers who need cracking
 			sitrep.servers.some(s => s.ports.nuked == false)) { // Check if we have servers that need nuking
 			// Buy programs, run programs, nuke
-			await TryRunScript(ns, 'breach.js', [true]);
+			await TryRunScript(ns, '/r/breach.js', [true]);
 		}
 
 		if (sitrep.servers.some(s => s.contracts.length > 0)) {
 			// Solve contracts
-			await TryRunScript(ns, 'contractPrep.js', [true]);
-			await TryRunScript(ns, 'solver.js', [true]);
+			await TryRunScript(ns, '/r/contractPrep.js', [true]);
+			await TryRunScript(ns, '/r/solver.js', [true]);
 		}
 
 		// Donate money
 		// if (ns.getPlayer().hasCorporation || ns.getPlayer().money > 150e9) {
 		// 	//if (ns.getServerMaxRam('home') >= Math.pow(2, 1))
-		// 	ns.run('jakob-corp.js');
-		// 	await TryRunScript(ns, 'corpDonate.js');
+		// 	ns.run('/r/jakob-corp.js');
+		// 	await TryRunScript(ns, '/r/corpDonate.js');
 		// 	//let corp= eval('ns.corporation');
 		// }
 		// else {
 
 		// }
-		await TryRunScript(ns, 'donate.js');
+		await TryRunScript(ns, '/r/donate.js');
 
 		// Buy personal server(s)
-		await TryRunScript(ns, 'budget.js', ['silent']);
-		sitrep = JSON.parse(ns.read('sitrep.txt'));
+		await TryRunScript(ns, '/r/budget.js', ['silent']);
+		sitrep = JSON.parse(ns.read('/sitrep.txt'));
 		let budget = sitrep.ramBudget ?? 0;
 		//ns.tprint('INFO: Ram budget is ' + ns.nFormat(budget, '0.000a'));
 		ns.print('INFO: Ram budget is ' + ns.nFormat(budget, '0.000a'));
-		await TryRunScript(ns, 'buyserver.js', ['upgrade', 'silent']);
+		await TryRunScript(ns, '/r/buyserver.js', ['upgrade', 'silent']);
 
 		// Save work reputation to it's faction
-		//await TryRunScript(ns, 'SaveRep.js');
+		//await TryRunScript(ns, '/r/SaveRep.js');
 
 		const BACKDOOR_TARGETS = [
 			'CSEC',
@@ -135,7 +135,7 @@ export async function main(ns) {
 
 		if (sitrep.servers.some(s => BACKDOOR_TARGETS.includes(s.name) && s.ports.backdoored == false && s.difficulty.current >= s.difficulty.required)) {
 			// Install backdoors
-			await TryRunScript(ns, 'installBackdoor.js', [true]);
+			await TryRunScript(ns, '/r/installBackdoor.js', [true]);
 		}
 
 		// Sleeve management
@@ -145,28 +145,28 @@ export async function main(ns) {
 		if (karma <= -54000 || ns.getPlayer().bitNodeN == 2) {
 			if (!sitrep.hasGang) {
 				LogMessage(ns, 'INFO: Creating gang');
-				await TryRunScript(ns, '/gang/create.js');
+				await TryRunScript(ns, '/r/gang/create.js');
 
 				// Situation report script
-				await TryRunScript(ns, 'sitrep.js');
+				await TryRunScript(ns, '/r/sitrep.js');
 				sitrep = JSON.parse(ns.read('sitrep.txt'));
 				karma = sitrep.karma;
 			}
 			if (sitrep.hasGang) {
-				await TryRunScript(ns, '/gang/members.js');
-				await TryRunScript(ns, '/gang/canClash.js');
-				await TryRunScript(ns, 'budget.js', ['silent']);
-				sitrep = JSON.parse(ns.read('sitrep.txt'));
+				await TryRunScript(ns, '/r/gang/members.js');
+				await TryRunScript(ns, '/r/gang/canClash.js');
+				await TryRunScript(ns, '/r/budget.js', ['silent']);
+				sitrep = JSON.parse(ns.read('/r/sitrep.txt'));
 
 				let budget = sitrep.gangBudget ?? 0;
 				//ns.tprint('INFO: Gang equipment budget is ' + ns.nFormat(budget, '0.000a'));
 				ns.print('INFO: Gang equipment budget is ' + ns.nFormat(budget, '0.000a'));
 				if (budget > 0) {
-					await TryRunScript(ns, '/gang/equipment.js');
-					await TryRunScript(ns, '/gang/buy.js', [budget, true]);
+					await TryRunScript(ns, '/r/gang/equipment.js');
+					await TryRunScript(ns, '/r/gang/buy.js', [budget, true]);
 				}
 
-				ns.run('gangman.js');
+				ns.run('/r/gangman.js');
 			}
 		}
 		else {
@@ -175,13 +175,13 @@ export async function main(ns) {
 
 		// Farm XP for a bit
 		if (ns.getPlayer().skills.hacking < 100) {
-			await TryRunScript(ns, 'study.js', ['silent']);
+			await TryRunScript(ns, '/r/study.js', ['silent']);
 		}
 
-		// 	let pid = ns.getRunningScript('v1.js', 'home', 'xp');
+		// 	let pid = ns.getRunningScript('/r/v1.js', 'home', 'xp');
 		// 	if (pid == undefined) {
 		// 		ns.tprint('INFO: Starting v1.js with params [xp]');
-		// 		pid = ns.run('v1.js', 1, 'xp');
+		// 		pid = ns.run('/r/v1.js', 1, 'xp');
 		// 		if (pid == undefined) {
 		// 			ns.tprint('FAIL: Failed to start v1.js with params [xp]');
 		// 		}
@@ -189,7 +189,7 @@ export async function main(ns) {
 		// }
 		// else {
 		// 	// Kill XP farming script
-		// 	let pid = ns.getRunningScript('v1.js', 'home', 'xp');
+		// 	let pid = ns.getRunningScript('/r/v1.js', 'home', 'xp');
 		// 	if (pid != undefined) {
 		// 		ns.tprint('INFO: XP goal reached, killing v1.js with params [xp]');
 		// 		ns.kill(pid.pid);
@@ -198,11 +198,11 @@ export async function main(ns) {
 
 		// Run manager on joesguns until we have all ports open
 		if ((sitrep.servers.some(s => s.ports.nuked == false) /*|| sitrep.ram.total < 5000*/) && sitrep.canHackJoe) {
-			let pid = ns.getRunningScript('manager.js', 'home', 'joesguns', 1, 420);
+			let pid = ns.getRunningScript('/r/manager.js', 'home', 'joesguns', 1, 420);
 			if (pid == undefined) {
-				ns.tprint('INFO: Starting manager.js with params [joesguns, 1]');
+				ns.tprint('INFO: Starting r/manager.js with params [joesguns, 1]');
 				LogMessage(ns, 'INFO: Starting manager.js with params [joesguns, 1]');
-				let pid = ns.run('manager.js', 1, 'joesguns', 1, 420);
+				let pid = ns.run('/r/manager.js', 1, 'joesguns', 1, 420);
 				if (pid == undefined) {
 					ns.tprint('FAIL: Failed to start manager.js with params [joesguns, 1]');
 				}
@@ -210,7 +210,7 @@ export async function main(ns) {
 		}
 		else {
 			// Kill XP farming script
-			let pid = ns.getRunningScript('manager.js', 'home', 'joesguns', 1, 420);
+			let pid = ns.getRunningScript('/r/manager.js', 'home', 'joesguns', 1, 420);
 			if (pid != undefined) {
 				ns.tprint('INFO: We now have all 5 port crackers available and enough ram to start controller mode. Killing manager.js on joesguns');
 				LogMessage(ns, 'WARN: Killing manager.js with params [joesguns, 1]');
@@ -218,7 +218,7 @@ export async function main(ns) {
 				pid = undefined;
 			}
 
-			const processInfo = ns.ps().find(p => p.filename == 'controller.js');
+			const processInfo = ns.ps().find(p => p.filename == '/r/controller.js');
 			const overrides = GetControllerOverrides(ns, sitrep);
 
 			let parametersChanged = false;
@@ -236,7 +236,7 @@ export async function main(ns) {
 				}
 				ns.tprint('INFO: Starting controller.js with params ' + overrides);
 				LogMessage(ns, 'INFO: Starting controller.js with params ' + overrides);
-				pid = ns.run('controller.js', 1, ...overrides);
+				pid = ns.run('/r/controller.js', 1, ...overrides);
 				if (pid == undefined) {
 					ns.tprint('FAIL: Failed to start controller.js ' + overrides);
 				}
@@ -244,15 +244,15 @@ export async function main(ns) {
 		}
 		//}
 
-		await TryRunScript(ns, 'demon.js', ['silent']);
+		await TryRunScript(ns, '/r/demon.js', ['silent']);
 
 		let waitingOnDaedalus = sitrep.flightStatus != undefined && sitrep.flightStatus.augs >= sitrep.flightStatus.augsNeeded
 			&& sitrep.money >= 100e9 && sitrep.level > 2500 && !ns.getPlayer().factions.includes('Daedalus');
 
 		// Check if we're ready to install
 		if ((sitrep.favorInstall || sitrep.shouldInstall) && !waitingOnDaedalus /*&& ns.getPlayer().hasCorporation && eval('ns.corporation').getCorporation().public == 1 && eval('ns.corporation').getCorporation().funds > 1e33*/) {
-			await TryRunScript(ns, 'factions.js', ['buy', 'silent']);
-			await TryRunScript(ns, 'dumpMoney.js');
+			await TryRunScript(ns, '/r/factions.js', ['buy', 'silent']);
+			await TryRunScript(ns, '/r/dumpMoney.js');
 
 			LogMessage(ns, 'INFO: autostart.js: killing all other scripts on home ');
 			ns.killall('home', true);
@@ -270,7 +270,7 @@ export async function main(ns) {
 			ns.tprint('WARN: About to install/soft reset! You got 1 seconds...');
 			await ns.sleep(1000);
 
-			ns.spawn('install.js');
+			ns.spawn('/r/install.js');
 			return;
 		}
 
@@ -321,16 +321,16 @@ async function SleeveManagement(ns, karma) {
 
 	// Homicide for karma
 	if (karma > -54000) {
-		await TryRunScript(ns, 'sleevecrime.js', ['Homicide', 0, 8]);
+		await TryRunScript(ns, '/r/sleevecrime.js', ['Homicide', 0, 8]);
 		return;
 	}
 
 	for (let i = 0; i < 8; i++) {
 		let stats = ns.sleeve.getSleeveStats(i);
 		if (stats.shock > 0)
-			await TryRunScript(ns, 'shock.js', [i, 1]);
+			await TryRunScript(ns, '/r/shock.js', [i, 1]);
 		else
-			await TryRunScript(ns, 'sleevecrime.js', ['Homicide', i, 1]);
+			await TryRunScript(ns, '/r/sleevecrime.js', ['Homicide', i, 1]);
 	}
 }
 

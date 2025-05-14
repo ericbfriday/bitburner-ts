@@ -1,7 +1,7 @@
 import { NodeStats, NS, Player } from "@ns";
-import { MINUTE } from "/_necronomicon/forbidden_knowledge";
-import { KeeperOfHacks, KeeperOfInventory } from "/_necronomicon/keeper";
-import { Whisperer } from "/_necronomicon/whisperer";
+import { MINUTE } from "../_necronomicon/forbidden_knowledge";
+import { KeeperOfHacks, KeeperOfInventory } from "../_necronomicon/keeper";
+import { Whisperer } from "../_necronomicon/whisperer";
 
 const RECRUITING_HACKNET = true
 
@@ -157,7 +157,7 @@ export async function notifyCultLeader(ns: NS, log: Whisperer, hacknetRecruits: 
         || hacknetRecruits.purchasedRam > 0
         || hacknetRecruits.purchasedCores > 0
     ) {
-        const upgrades = []
+        const upgrades: string[] = [] satisfies string[];
 
         if (hacknetRecruits.purchasedNodes > 0) {
             upgrades.push(`Recruited ${hacknetRecruits.purchasedNodes} nodes.`)
@@ -165,7 +165,7 @@ export async function notifyCultLeader(ns: NS, log: Whisperer, hacknetRecruits: 
 
         if (hacknetRecruits.purchasedLevels > 0 || hacknetRecruits.purchasedRam > 0 || hacknetRecruits.purchasedCores > 0) {
             upgrades.push(`Upgraded nodes with`)
-            const nodeUpgrades = []
+            const nodeUpgrades: string[] = []
 
             if (hacknetRecruits.purchasedLevels > 0) nodeUpgrades.push(`${hacknetRecruits.purchasedLevels} levels`)
             if (hacknetRecruits.purchasedRam > 0) nodeUpgrades.push(`${hacknetRecruits.purchasedRam} RAM upgrades`)

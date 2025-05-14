@@ -1,6 +1,6 @@
 import { NS } from "@ns";
-import { wither } from "/_corruptions/naegleria";
-import { Whisperer } from "/_necronomicon/whisperer";
+import { wither } from "../../_corruptions/naegleria";
+import { Whisperer } from "../../_necronomicon/whisperer";
 
 /**
  * Wither a future sacrifice mind away, bending their will to the elder ones.

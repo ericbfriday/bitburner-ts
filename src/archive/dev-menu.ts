@@ -1,4 +1,4 @@
-import type { NS } from "../NetscriptDefinitions";
+import type { NS } from "../../NetscriptDefinitions";
 
 declare const webpackChunkbitburner: any;
 declare const webpack_require: any;

@@ -1,4 +1,5 @@
 import { NS, NodeStats, Player } from "@ns";
+import _ from "lodash";
 
 abstract class Keeper<T> {
     constructor(private ns: NS, private tome: string) { }

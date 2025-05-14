@@ -41,7 +41,7 @@ export async function main(ns) {
 
 	let sitrep = GetSitRep(ns);
 	if (!sitrep.hasGang) {
-		await TryRunScript(ns, '/gang/create.js');
+		await TryRunScript(ns, '/r/gang/create.js');
 		sitrep = GetSitRep(ns);
 		if (!sitrep.hasGang) {
 			ns.tprint('ERROR: Not in a gang, exiting');
@@ -60,10 +60,10 @@ export async function main(ns) {
 	AssignTasks(ns, members, gangInfo);
 
 	while (true) {
-		await TryRunScript(ns, '/gang/members.js');
-		await TryRunScript(ns, '/gang/canClash.js');
-		//await TryRunScript(ns, '/gang/equipment.js');
-		//await TryRunScript(ns, '/gang/buy.js', [budget, true]);
+		await TryRunScript(ns, '/r/gang/members.js');
+		await TryRunScript(ns, '/r/gang/canClash.js');
+		//await TryRunScript(ns, '/r/gang/equipment.js');
+		//await TryRunScript(ns, '/r/gang/buy.js', [budget, true]);
 		sitrep = GetSitRep(ns);
 
 		gangInfo = ns.gang.getGangInformation();

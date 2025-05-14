@@ -1,6 +1,6 @@
 import { NS } from "@ns";
 import { parseDelay } from "./h";
-import { Whisperer } from "/_necronomicon/whisperer";
+import { Whisperer } from "../../_necronomicon/whisperer";
 
 /**
  * Rot: Weaken

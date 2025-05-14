@@ -1,5 +1,5 @@
-import { GetEquipment } from '/gang/equipment.js';
-import { GetMembers } from '/gang/members.js';
+import { GetEquipment } from '/r/gang/equipment.js';
+import { GetMembers } from '/r/gang/members.js';
 
 /** @param {NS} ns */
 export async function main(ns) {

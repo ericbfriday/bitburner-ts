@@ -1,4 +1,4 @@
-import { ColorPrint } from './hack-once.js';
+import { ColorPrint } from './tables.js';
 
 const CITIES = [
 	'Aevum',

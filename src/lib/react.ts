@@ -1,6 +1,4 @@
-// @ts-expect-error
 import ReactNamespace from 'react/index';
-// @ts-expect-error
 import ReactDomNamespace from 'react-dom';
 
 declare global {

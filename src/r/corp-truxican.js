@@ -120,10 +120,10 @@ export class Office {
 	}
 }
 
-/*
+
 export async function main(ns) {
 	const CorpApi = eval("ns.corporation")
 	while (CorpApi.getCorporation().state != "START") { await ns.sleep(10) }
 
 	await (new Office(ns, ns.args[0], ns.args[1]).truxican());
-}*/
+}

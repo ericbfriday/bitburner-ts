@@ -23,15 +23,15 @@
     "allowJs": true,
     "jsx": "react",
     "paths": {
-      "/*": [
-        "*"
-      ],
       "@ns": [
-        "../NetscriptDefinitions.d.ts"
+        "types/NetscriptDefinitions.d.ts"
       ],
       "@react": [
         "lib/react.ts"
-      ]
+      ],
+      "/*": [
+        "*"
+      ],
     }
   }
 }

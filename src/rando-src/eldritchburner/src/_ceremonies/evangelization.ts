@@ -1,7 +1,7 @@
 import { NS } from "@ns";
-import { purchaseMaxCost, shouldContinue } from "/_ceremonies/hustle-culture";
-import { uuid } from "/_necronomicon/name-giver";
-import { Whisperer } from "/_necronomicon/whisperer";
+import { purchaseMaxCost, shouldContinue } from "../_ceremonies/hustle-culture";
+import { uuid } from "../_necronomicon/name-giver";
+import { Whisperer } from "../_necronomicon/whisperer";
 
 const RECRUITING_SERVERS = true
 

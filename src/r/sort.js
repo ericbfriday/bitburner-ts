@@ -76,7 +76,7 @@ export async function main(ns) {
 			let procs = await ns.ps();
 			let alreadyRunning = false;
 			for (const proc of procs) {
-				if (proc.filename != 'prep.js') continue;
+				if (proc.filename != 'r/prep.js') continue;
 				if (proc.args != hackable) continue;
 
 				alreadyRunning = true;
@@ -86,10 +86,10 @@ export async function main(ns) {
 			if (alreadyRunning == false) {
 				ns.tprint("INFO: Launching prep.js for " + hackable);
 
-				//const needed = ns.getScriptRam('prep.js');
+				//const needed = ns.getScriptRam('r/prep.js');
 				//let ram = new MemoryMap(ns);
 				//const server = ram.ReserveBlock(needed);
-				if (ns.exec('prep.js', 'home', 1, hackable) == 0) {
+				if (ns.exec('r/prep.js', 'home', 1, hackable) == 0) {
 					ns.tprint("FAILED: Launching prep.js for " + hackable);
 				}
 			}
@@ -110,7 +110,7 @@ export async function main(ns) {
 
 	for (const hackable of hackableServers) {
 		if (ns.args[0] == 'run') {
-			let target = 'v1.js';
+			let target = 'r/v1.js';
 			const so = ns.getServer(hackable);
 			if (so.requiredHackingSkill > player.hacking / 2)
 				continue;

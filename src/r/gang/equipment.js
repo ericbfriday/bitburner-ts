@@ -4,12 +4,12 @@ export async function main(ns) {
 		UpdateGangEquipmment(ns);
 	}
 	catch {
-		ns.write('/gang/equipment.txt', JSON.stringify([]), 'w');
+		ns.write('/r/gang/equipment.txt', JSON.stringify([]), 'w');
 	}
 }
 
 export function GetEquipment(ns) {
-	return JSON.parse(ns.read('/gang/equipment.txt'));
+	return JSON.parse(ns.read('/r/gang/equipment.txt'));
 }
 
 export function UpdateGangEquipmment(ns) {
@@ -25,5 +25,5 @@ export function UpdateGangEquipmment(ns) {
 			cost: cost
 		});
 	}
-	ns.write('/gang/equipment.txt', JSON.stringify(output), 'w');
+	ns.write('/r/gang/equipment.txt', JSON.stringify(output), 'w');
 }

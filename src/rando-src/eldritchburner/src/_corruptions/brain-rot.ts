@@ -1,5 +1,5 @@
 import { NS } from "@ns";
-import { Whisperer } from "/_necronomicon/whisperer";
+import { Whisperer } from "../_necronomicon/whisperer";
 
 const THRESHOLD_MAX_SECURITY = 5
 const THRESHOLD_MONEY_PERCENT = 0.75

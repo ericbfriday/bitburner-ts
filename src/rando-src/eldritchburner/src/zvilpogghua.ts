@@ -1,10 +1,11 @@
 import { NS } from "@ns";
-import { WorkRef } from "/_necronomicon/chamberlain";
-import { MINUTE } from "/_necronomicon/forbidden_knowledge";
-import { KeeperOfInventory, KeeperOfNetwork, ServerRef } from "/_necronomicon/keeper";
-import { uuid } from "/_necronomicon/name-giver";
-import { Whisperer, fmt } from "/_necronomicon/whisperer";
-import { availableRam } from "/cthulhu";
+import { WorkRef } from "./_necronomicon/chamberlain";
+import { MINUTE } from "./_necronomicon/forbidden_knowledge";
+import { KeeperOfInventory, KeeperOfNetwork, ServerRef } from "./_necronomicon/keeper";
+import { uuid } from "./_necronomicon/name-giver";
+import { Whisperer, fmt } from "./_necronomicon/whisperer";
+import { availableRam } from "./cthulhu";
+import _ from "lodash";
 
 const THRESHOLD_MAX_SECURITY = 5
 const THRESHOLD_MONEY_PERCENT = 0.75
@@ -180,7 +181,7 @@ export async function protoBatching(ns: NS, log: Whisperer, sacrifice: ServerRef
     const sacrificeIsReady = fatSacrifice && lowSecurity
 
     // Batch orders
-    const ceremonialSacrifice = []
+    const ceremonialSacrifice: string[] = []
     if (sacrificeIsReady) ceremonialSacrifice.push(security <= sacrifice.sensus.minDifficulty + 1 ? "H" : "HW", "GW")
     else {
         if (!lowSecurity) ceremonialSacrifice.push("W")

@@ -68,10 +68,18 @@ export async function main(ns) {
 
 		ns.print("Solving " + contract.fileName + "...");
 
-		// Use JSON Strigify function to pass an object to a script
-		//	processID = ns.exec('/contracts/test.js', 'home', 1);
-		processID = ns.run(solveContractScript, 1, JSON.stringify(contract));
-
+		try {
+			// Use JSON Strigify function to pass an object to a script
+			//	processID = ns.exec('/contracts/test.js', 'home', 1);
+			processID = ns.run(solveContractScript, 1, JSON.stringify(contract));
+		} catch (e) {
+			ns.tprint(`ERROR: ${e}`);
+			if (typeof contract.data === 'bigint') {
+				// If the data is a BigInt, we need to convert it to a string
+				contract.data = contract.data.toString();
+				processID = ns.run(solveContractScript, 1, JSON.stringify(contract));
+			}
+		}
 		// Sleep a bit while process starts before pulling its log
 		await ns.sleep(500);
 		scriptLog = ns.getScriptLogs(solveContractScript, 'home', JSON.stringify(contract));
@@ -80,7 +88,7 @@ export async function main(ns) {
 
 		// Display results from solving script to this script's tail window
 		// Note: Log is returned as an array, so we have to loop through it
-		for (let line of scriptLog){
+		for (let line of scriptLog) {
 			ns.print(line);
 		}
 

@@ -3,7 +3,7 @@ import * as bitburner from "@ns";
 export { };
 
 declare global {
-    const _: typeof _
+    // const _: typeof _
 
     interface NS extends bitburner.NS { }
 

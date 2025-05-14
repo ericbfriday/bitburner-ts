@@ -1,7 +1,8 @@
 import { NS } from "@ns";
-import { KeeperOfInventory, KeeperOfNetwork, Network, sensusOf, ServerRef } from "/_necronomicon/keeper";
-import { Whisperer } from "/_necronomicon/whisperer";
+import { KeeperOfInventory, KeeperOfNetwork, Network, sensusOf, ServerRef } from "../_necronomicon/keeper";
+import { Whisperer } from "../_necronomicon/whisperer";
 
+import _ from "lodash";
 
 /**
  * Register all souls, and categorize them
@@ -35,8 +36,8 @@ export async function main(ns: NS): Promise<void> {
     const networkMap = await networkScan(ns);
     const enrichedMap = _(networkMap)
         .filter(s => s.hostname != "darkweb")
-        .mapValues(s => { return { ...s, sensus: sensusOf({ ...ns.getServer(s.hostname) }) } as ServerRef })
-        .value() as Network
+        .mapValues(s => { return { ...s, sensus: sensusOf({ ...ns.getServer(s.hostname) }) } as ServerRef }) as Network
+        // EF removed .value() as it caused error with lodash types.
 
     await (new KeeperOfNetwork(ns)).entrust(enrichedMap)
 

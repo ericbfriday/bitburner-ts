@@ -1,5 +1,5 @@
 import { NS } from "@ns";
-import { Whisperer } from "/_necronomicon/whisperer";
+import { Whisperer } from "../../_necronomicon/whisperer";
 
 /**
  * Rot: Hock

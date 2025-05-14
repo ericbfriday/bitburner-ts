@@ -52,8 +52,8 @@ function FindInstances(ns) {
 	let totalRam = 0;
 	for (const server of GetAllServers(ns)) {
 		let procs = ns.ps(server);
-		allProcs.push(...procs.filter(s => s.filename == 'share-forever.js'));
-		dupes.push(...procs.filter(s => s.filename == 'share.js' && s.args[0] != 'stop'));
+		allProcs.push(...procs.filter(s => s.filename == 'r/share-forever.js'));
+		dupes.push(...procs.filter(s => s.filename == 'r/share.js' && s.args[0] != 'stop'));
 		if (ns.hasRootAccess(server))
 			totalRam += ns.getServerMaxRam(server);
 	}
@@ -67,7 +67,7 @@ function FindInstances(ns) {
 async function AdjustUsage(ns, pct) {
 	let data = FindInstances(ns);
 	let shareThreads = data.shares.reduce((a, s) => a += s.threads, 0);
-	let scriptRam = ns.getScriptRam('share-forever.js');
+	let scriptRam = ns.getScriptRam('r/share-forever.js');
 	let sharePct = (shareThreads * scriptRam) / data.totalRam;
 	let targetThreads = Math.ceil(data.totalRam * pct / scriptRam);
 
@@ -86,6 +86,6 @@ async function AdjustUsage(ns, pct) {
 	if (sharePct < pct) {
 		let missingThreads = targetThreads - shareThreads;
 		ns.print('Attempting to start ' + missingThreads + ' share threads.');
-		await RunScript(ns, 'share-forever.js', missingThreads, ['', performance.now(), true], true, true);
+		await RunScript(ns, 'r/share-forever.js', missingThreads, ['', performance.now(), true], true, true);
 	}
 }

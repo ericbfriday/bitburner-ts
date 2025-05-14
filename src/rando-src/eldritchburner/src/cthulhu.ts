@@ -1,9 +1,10 @@
-import { NS } from "@ns";
+import type { NS } from "@ns";
 import { Collection } from "lodash";
 import { networkScan } from "./_ceremonies/sensus";
 import { KeeperOfInventory, KeeperOfNetwork, ServerRef } from "./_necronomicon/keeper";
 import { Whisperer } from "./_necronomicon/whisperer";
 
+import _ from "lodash";
 /**
  * The great old one will spread the corruption
  *

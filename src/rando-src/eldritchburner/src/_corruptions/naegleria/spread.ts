@@ -1,6 +1,6 @@
 import { NS } from "@ns";
-import { spread } from "/_corruptions/naegleria";
-import { Whisperer } from "/_necronomicon/whisperer";
+import { spread } from "../../_corruptions/naegleria";
+import { Whisperer } from "../../_necronomicon/whisperer";
 
 /**
  * Spread the Temple's corruption to the corrupted.

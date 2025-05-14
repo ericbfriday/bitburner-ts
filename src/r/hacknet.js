@@ -63,7 +63,7 @@
 /** @param {NS} ns */
 export async function main(ns) {
 	let money = ns.args[0] || ns.getServerMoneyAvailable('home');
-	for (; ;) {
+	while (true) {
 		let cost = await UpgradeRound(ns, money);
 		money -= cost;
 		if (cost == 0 || money <= 0) break;
